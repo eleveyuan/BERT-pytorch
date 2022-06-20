@@ -38,13 +38,13 @@ Also, this repo includes SST-2 data in data/SST-2 directory for sentiment classi
 
 ### Build dictionary
 ```
-python bert.py preprocess-index data/example/train.txt --dictionary=dictionary.txt
+python main.py preprocess-all --data_dir data/example/train.txt
 ```
 Running the above command produces dictionary.txt file in your current directory.
 
 ### Pre-train the model
 ```
-python bert.py pretrain --train_data data/example/train.txt --val_data data/example/val.txt --checkpoint_output model.pth
+python main.py pretrain --train_data data/example/train.txt --val_data data/example/val.txt --checkpoint_output model.pth
 ```
 This step trains BERT model with unsupervised objective. Also this step does:
 - logs the training procedure for every epoch
@@ -55,7 +55,7 @@ This step trains BERT model with unsupervised objective. Also this step does:
 You can fine-tune pretrained BERT model with downstream task.
 For example, you can fine-tune your model with SST-2 sentiment classification task. 
 ```
-python bert.py finetune --pretrained_checkpoint model.pth --train_data data/SST-2/train.tsv --val_data data/SST-2/dev.tsv
+python main.py finetune --pretrained_checkpoint model.pth --train_data data/SST-2/train.tsv --val_data data/SST-2/dev.tsv
 ```
 This command also logs the procedure, outputs checkpoint, and reports the best checkpoint.
 
