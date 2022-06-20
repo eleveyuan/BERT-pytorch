@@ -44,14 +44,14 @@ def preprocess_all(data_dir, wiki_raw_path, raw_documents_path, sentences_detect
     build_dictionary(train_path, dictionary_path)
 
 
-def tokenize(text: str, lower: bool, **_):  # token_min_len: int, token_max_len: int,
+def tokenize(text: str, token_min_len: int, token_max_len: int, lower: bool):  # token_min_len: int, token_max_len: int,
     if lower:
         text = text.lower()
     return text.split()
 
 
 def extract_articles_wiki(wiki_raw_path, raw_documents_path, **_):
-    wiki_corpus = WikiCorpus(wiki_raw_path, lemmatize=False, dictionary={}, tokenizer_func=tokenize, lower=False)
+    wiki_corpus = WikiCorpus(wiki_raw_path, dictionary={}, tokenizer_func=tokenize, lower=False)
 
     with open(raw_documents_path, 'w') as raw_documents_file:
         for text in tqdm(wiki_corpus.get_texts()):
