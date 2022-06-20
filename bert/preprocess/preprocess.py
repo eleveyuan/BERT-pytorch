@@ -164,6 +164,8 @@ def add_preprocess_parser(subparsers):
     preprocess_all_parser.add_argument('--word_piece_vocab_size', type=int, default=30000)
     preprocess_all_parser.add_argument('--prepared_documents_path', type=str, default='prepared_documents.txt')
     preprocess_all_parser.add_argument('--dictionary_path', type=str, default='dictionary.txt')
+    preprocess_all_parser.add_argument('--train_path', type=str, default='train.txt')
+    preprocess_all_parser.add_argument('--val_path', type=str, default='val.txt')
 
     extract_wiki_parser = subparsers.add_parser('extract-wiki')
     extract_wiki_parser.set_defaults(function=extract_articles_wiki)
