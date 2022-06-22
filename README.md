@@ -76,6 +76,3 @@ For example, you can fine-tune your model with SST-2 sentiment classification ta
 python main.py finetune --pretrained_checkpoint model.pth --train_data data/SST-2/train.tsv --val_data data/SST-2/dev.tsv
 ```
 This command also logs the procedure, outputs checkpoint, and reports the best checkpoint.
-
-## Author
-[@dreamgonfly](https://github.com/dreamgonfly)
